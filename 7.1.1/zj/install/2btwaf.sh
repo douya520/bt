@@ -98,7 +98,7 @@ Install_btwaf()
 		rm -rf /www/server/btwaf/captcha.zip
 	fi
 	wget -O $pluginPath/firewalls_list.py $download_Url/btwaf_rule/test/btwaf/firewalls_list.py -T 5
-	wget -O $pluginPath/index.html $download_Url/btwaf_rule/test/btwaf/index.html -T 5
+	wget -O $pluginPath/index.html $cjqbt_Url/btwaf_rule/test/btwaf/index.html -T 5
 	wget -O $pluginPath/info.json $download_Url/btwaf_rule/test/btwaf/info.json -T 5
 	wget -O $pluginPath/icon.png $download_Url/btwaf_rule/test/btwaf/icon.png -T 5
 	wget -O $pluginPath/rule.json $download_Url/btwaf_rule/test/btwaf/rule.json -T 5
