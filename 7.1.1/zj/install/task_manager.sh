@@ -16,8 +16,8 @@ Install_task_manager()
 	echo '正在安装脚本文件...' > $install_tmp
 	wget -O /www/server/panel/plugin/task_manager/task_manager_main.py $cjqbt_Url/install/plugin/task_manager/task_manager_main.py -T 5
 	wget -O /www/server/panel/plugin/task_manager/index.html $cjqbt_Url/install/plugin/task_manager/index.html -T 5
-	wget -O /www/server/panel/plugin/task_manager/info.json $cjqbt_URL/install/plugin/task_manager/info.json -T 5
-	wget -O /www/server/panel/plugin/task_manager/icon.png $cjqbt_URL/install/plugin/task_manager/icon.png -T 5
+	wget -O /www/server/panel/plugin/task_manager/info.json $cjqbt_Url/install/plugin/task_manager/info.json -T 5
+	wget -O /www/server/panel/plugin/task_manager/icon.png $cjqbt_Url/install/plugin/task_manager/icon.png -T 5
 	\cp -a -r /www/server/panel/plugin/task_manager/icon.png /www/server/panel/static/img/soft_ico/ico-task_manager.png
 	echo '安装完成' > $install_tmp
 }
