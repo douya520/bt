@@ -21,6 +21,10 @@ Nginx防火墙安装命令2：
 
 <pre><code class="language-bash">wget -O 2btwaf.sh https://raw.githubusercontent.com/cq520/bt/master/7.1.1/zj/install/2btwaf.sh && bash 2btwaf.sh install</code></pre>
 
+Apache防火墙安装命令：
+
+<pre><code class="language-bash">wget -O btwaf_httpd.sh https://raw.githubusercontent.com/cq520/bt/master/7.1.1/zj/install/btwaf_httpd.sh && bash btwaf_httpd.sh install</code></pre>
+
 
 网站监控报表3.2安装命令：
 
