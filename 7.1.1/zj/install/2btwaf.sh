@@ -89,7 +89,7 @@ Install_btwaf()
 		fi
 	fi
 	
-	wget -O $pluginPath/btwaf_main.py $download_Url/btwaf_rule/test/btwaf/btwaf_main.py -T 5
+	wget -O $pluginPath/btwaf_main.py $cjqbt_Url/btwaf_rule/test/btwaf/btwaf_main.py -T 5
 	wget -O $pluginPath/send_vilidate.py $download_Url/btwaf_rule/test/btwaf/send_vilidate.py -T 5
 	python $pluginPath/send_vilidate.py
 	if [ ! -f /www/server/btwaf/captcha/num2.json ];then
@@ -97,7 +97,7 @@ Install_btwaf()
 		unzip -o /www/server/btwaf/captcha.zip  -d /www/server/btwaf/ > /dev/null
 		rm -rf /www/server/btwaf/captcha.zip
 	fi
-	wget -O $pluginPath/firewalls_list.py $download_Url/btwaf_rule/test/btwaf/firewalls_list.py -T 5
+	wget -O $pluginPath/firewalls_list.py $cjqbt_Url/btwaf_rule/test/btwaf/firewalls_list.py -T 5
 	wget -O $pluginPath/index.html $cjqbt_Url/btwaf_rule/test/btwaf/index.html -T 5
 	wget -O $pluginPath/info.json $download_Url/btwaf_rule/test/btwaf/info.json -T 5
 	wget -O $pluginPath/icon.png $download_Url/btwaf_rule/test/btwaf/icon.png -T 5

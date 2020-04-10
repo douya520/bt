@@ -97,5 +97,4 @@ GetPackManager
 if [ ! $NODE_URL ];then
 	echo '正在选择下载节点...';
 	get_node_url
-	bt_check
 fi
