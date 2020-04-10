@@ -265,7 +265,6 @@
             <p onclick="wafconfig()">全局配置</p>
             <p onclick="siteconfig()">站点配置</p>
             <p onclick="Protectionlog()">封锁历史</p>
-            <p onclick="webshell_con_view()">Webshell查杀</p>
             <p onclick="viewdata()">操作日志</p>
         </div>
         <div class="bt-w-con pd15" style="margin-left:140px">
@@ -420,12 +419,6 @@
                                                 <input class="btswitch btswitch-ios" id="closeabroad" type="checkbox" '+ (rdata.drop_abroad.open ? 'checked' : '') + '>\
                                                 <label class="btswitch-btn" for="closeabroad" onclick="set_obj_open(\'drop_abroad\')"></label>\
                                             </div></td><td class="text-right"><a class="btlink" onclick="cn_iplist()">设置</a> | <a class="btlink" onclick="sync_iplist()">同步</a></td>\
-                                        </tr>\
-                                        <tr>\
-                                            <td>webshell查杀</td><td>'+ 'webshell动态查杀开关' + '</td><td><a class="btlink" onclick="set_request_code(\'get\',' + rdata.get.status + ')">' + rdata.get.status + '</a></td><td><div class="ssh-item">\
-                                                <input class="btswitch btswitch-ios" id="closeabroad_webshell" type="checkbox" '+ (rdata.webshell_open ? 'checked' : '') + '>\
-                                                <label class="btswitch-btn" for="closeabroad_webshell" onclick="set_obj_open(\'webshell_open\')"></label>\
-                                             <td class="text-right">--</td>\
                                         </tr>\
                                         <tr>\
                                             <td>常见扫描器</td><td>'+ rdata.scan.ps + '</td><td><a class="btlink" onclick="set_request_code(\'scan\',' + rdata.scan.status + ')">' + rdata.scan.status + '</a></td><td><div class="ssh-item">\
@@ -1761,15 +1754,6 @@
                             <div class="info-r"><input class="bt-input-text" name="cc_endtime" type="number" value="'+ endtime + '" /> 秒</div>\
                         </div>\
                         <div class="line">\
-                            <span class="tname">浏览器验证</span>\
-                            <div class="info-r">\
-                                <select class="bt-input-text mr5" style="width:80px" name="increase_wu_heng">\
-                                    <option value="0" '+ (!increase_wu_heng?'selected':'') +'>关闭</option>\
-                                    <option value="1" '+ (increase_wu_heng?'selected':'') +'>开启</option>\
-                                </select>\
-                            </div>\
-                        </div>\
-                        <div class="line">\
                             <span class="tname">增强模式</span>\
                             <div class="info-r">\
                                 <select class="bt-input-text mr5" style="width:80px" name="enhance_mode">\
@@ -1779,7 +1763,6 @@
                                 <div style="display: inline-block;height: 32px;padding-right: 5px;">验证方式</div>\
                                 <select class="bt-input-text mr5" style="width:90px" name="increase_type">\
                                     <option value="js" '+(cc_increase_type ? 'selected' : '')+'>跳转验证</option>\
-                                    <option value="code" '+(cc_increase_type == 'code' ? 'selected' : '')+'>验证码验证</option>\
                                 </select>\
                             </div>\
                         </div>\
@@ -1808,7 +1791,6 @@
                         <ul class="help-info-text c7 ptb10">'+ incstr + '\
                             <li><font style="color:red;">'+ cycle + '</font> 秒内累计请求同一URL超过  <font style="color:red;">' + limit + '</font> 次,触发CC防御,封锁此IP <font style="color:red;">' + endtime + '</font> 秒</li>\
                             <li>请不要设置过于严格的CC规则,以免影响正常用户体验</li>\
-                            <li><font style="color:red;">浏览器验证:验证是否为正常浏览器请求，若打开后网站访问异常，请关闭它</font></li>\
                             <li><font style="color:red;">增强模式:CC防御加强版，开启后可能会影响用户体验，建议在用户受到CC攻击时开启。</font></li>\
                             <li class="cc_auto" style="display:none">设置为自动模式为开启状态时，当网站 <font style="color:red;" class="cc_time"></font> 秒 时间内,被访问 <font style="color:red;"  class="cc_retry_cycle"></font> 次自动开启增强模式，没有触发该规则，自动关闭增强模式。</font></li>\
                             <li style="display:'+ (siteName == 'undefined' ? 'display: inline-block;' : 'none') + ';"><font style="color:red;">全局应用:全局设置当前CC规则，且覆盖当前全部站点的CC规则,自动模式默认为全局应用。</font></li>\
