@@ -150,7 +150,7 @@ get_node_url(){
 		NODE_URL=${urls[$j]}
 	fi
 	download_Url=$NODE_URL
-	cjqbt_Url=https://raw.githubusercontent.com/cq520/bt/master/7.2.0/zj
+	btsb_Url=https://raw.githubusercontent.com/cq520/bt/master/7.2.0/zj
 	echo "Download node: $download_Url";
 	echo '---------------------------------------------';
 }
@@ -183,7 +183,7 @@ Install_RPM_Pack(){
 		time_total=$(echo ${checkYumRepo}|awk '{print $2}'|cut -d '.' -f 1)
 	fi
 	if [ "${yumStatus}" != "200" ] || [ "${time_total}" -ge "2" ];then
-		wget -O yumRepo_select.sh https://raw.githubusercontent.com/cq520/bt/master/7.1.1/zj/install/5/yumRepo_select.sh
+		wget -O yumRepo_select.sh ${btsb_Url}/install/5/yumRepo_select.sh
 		bash yumRepo_select.sh ${download_Url}
 	fi
 	
@@ -296,10 +296,10 @@ Install_Bt(){
 		sleep 1
 	fi
 
-	wget -O panel.zip ${cjqbt_Url}/install/src/panel6.zip -T 10
-	wget -O /etc/init.d/bt ${cjqbt_Url}/install/src/bt6.init -T 10
-	wget -O /www/server/panel/install/public.sh ${cjqbt_Url}/install/public.sh -T 10
-	wget -O /www/server/panel/install/public.sh ${cjqbt_Url}/install/check.sh -T 10
+	wget -O panel.zip ${btsb_Url}/install/src/panel6.zip -T 10
+	wget -O /etc/init.d/bt ${btsb_Url}/install/src/bt6.init -T 10
+	wget -O /www/server/panel/install/public.sh ${btsb_Url}/install/public.sh -T 10
+	wget -O /www/server/panel/install/public.sh ${btsb_Url}/install/check.sh -T 10
 
 	if [ -f "${setup_path}/server/panel/data/default.db" ];then
 		if [ -d "/${setup_path}/server/panel/old_data" ];then
@@ -341,10 +341,10 @@ Install_Bt(){
 	echo "${panelPort}" > ${setup_path}/server/panel/data/port.pl
 }
 Install_Pip(){
-	curl -Ss --connect-timeout 3 -m 60 https://raw.githubusercontent.com/cq520/bt/master/7.1.1/zj/install/pip_select.sh|bash
+	curl -Ss --connect-timeout 3 -m 60 ${btsb_Url}/install/pip_select.sh|bash
 	isPip=$(pip -V|grep python)
 	if [ -z "${isPip}" ];then
-		wget -O get-pip.py https://raw.githubusercontent.com/cq520/bt/master/7.1.1/zj/src/get-pip.py
+		wget -O get-pip.py ${btsb_Url}/src/get-pip.py
 		python get-pip.py
 		rm -f get-pip.py
 		isPip=$(pip -V|grep python)
@@ -377,7 +377,7 @@ Install_Pillow()
 			pip install Pillow
 			return;
 		fi
-		wget -O Pillow-3.2.0.zip https://raw.githubusercontent.com/cq520/bt/master/7.1.1/zj/install/src/Pillow-3.2.0.zip -T 10
+		wget -O Pillow-3.2.0.zip $btsb_Url/install/src/Pillow-3.2.0.zip -T 10
 		unzip Pillow-3.2.0.zip
 		rm -f Pillow-3.2.0.zip
 		cd Pillow-3.2.0
@@ -396,7 +396,7 @@ Install_psutil()
 {
 	isSetup=`python -m psutil 2>&1|grep package`
 	if [ "$isSetup" = "" ];then
-		wget -O psutil-5.2.2.tar.gz https://raw.githubusercontent.com/cq520/bt/master/7.1.1/zj/install/src/psutil-5.2.2.tar.gz -T 10
+		wget -O psutil-5.2.2.tar.gz $btsb_Url/install/src/psutil-5.2.2.tar.gz -T 10
 		tar xvf psutil-5.2.2.tar.gz
 		rm -f psutil-5.2.2.tar.gz
 		cd psutil-5.2.2
@@ -413,7 +413,7 @@ Install_chardet()
 {
 	isSetup=$(python -m chardet 2>&1|grep package)
 	if [ "${isSetup}" = "" ];then
-		wget -O chardet-2.3.0.tar.gz https://raw.githubusercontent.com/cq520/bt/master/7.1.1/zj/install/src/chardet-2.3.0.tar.gz -T 10
+		wget -O chardet-2.3.0.tar.gz $btsb_Url/install/src/chardet-2.3.0.tar.gz -T 10
 		tar xvf chardet-2.3.0.tar.gz
 		rm -f chardet-2.3.0.tar.gz
 		cd chardet-2.3.0
